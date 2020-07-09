@@ -28,3 +28,6 @@ Limits:
 - Adding an item more than once is fine but upon delete the chosen item will remove only the first item of the matchig ID
 - Still under development -> next up: quantity and checkout
          
+![e-store](https://user-images.githubusercontent.com/55841911/87069043-74047000-c20e-11ea-899e-d3ca8a0844bb.png)
+![e-store-generated-front](https://user-images.githubusercontent.com/55841911/87069051-75359d00-c20e-11ea-8830-c5f736edc159.png)
+![e-store-basket](https://user-images.githubusercontent.com/55841911/87069055-7666ca00-c20e-11ea-950f-cee10d34eebe.png)

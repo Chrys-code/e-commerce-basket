@@ -11,6 +11,7 @@ Key elements:
 - Onclick  -> write into basket html -> push products.array (into app memory)
 - Trash button in basket -> For each trashBtn -> **setAttributes("value" = `${product.id}`), onclick ->
 paren.el display none, **get target.value via event capturing -> find object by ID ((x) => x.id) === product.id) and remove from app memory
+- TotalPrice calculated from LocalStorage
 
 
 *database: 

@@ -31,3 +31,6 @@ Limits:
 ![e-store](https://user-images.githubusercontent.com/55841911/87069043-74047000-c20e-11ea-899e-d3ca8a0844bb.png)
 ![e-store-generated-front](https://user-images.githubusercontent.com/55841911/87069051-75359d00-c20e-11ea-8830-c5f736edc159.png)
 ![e-store-basket](https://user-images.githubusercontent.com/55841911/87069055-7666ca00-c20e-11ea-950f-cee10d34eebe.png)
+ If LocalStorage contains items it will be displayed in totalprice.
+![price](https://user-images.githubusercontent.com/55841911/87251792-9c8aa500-c46e-11ea-9d86-a8744e1fff77.png)
+![price2](https://user-images.githubusercontent.com/55841911/87251793-9dbbd200-c46e-11ea-9f61-02644fe6fbce.png)

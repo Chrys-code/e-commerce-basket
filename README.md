@@ -13,14 +13,9 @@ Key elements:
 paren.el display none, **get target.value via event capturing -> find object by ID ((x) => x.id) === product.id) and remove from app memory
 - TotalPrice calculated from LocalStorage
 
-
 *database: 
 - JSON file mime tiype is overridden. The usage if the products.JSON file this case is very similar to an API request as all the file is read on event
 This way I could get a simulated only-read database.
-
-**get target.value via event capturing*
-- This way I was able to pass Object ID outside of the scope and solve to find the right object in the app memory based on matching IDs
-
 
 Limits:
 - Using JSON with an API request method limits the oppotrunity to using modules as most of the functions are instantly nested under the data request

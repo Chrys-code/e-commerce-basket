@@ -1,9 +1,11 @@
 //Variables
+const basketMenu = document.getElementsByClassName("basket-menu")[0];
 const row = document.getElementsByClassName("row")[0];
 const itemList = document.getElementsByTagName("ul")[0];
+const checkoutPrice = document.getElementById("checkout");
 
 //Function
-// Initial render for shop front
+//Initial render for shop front
 export function productManagement(product) {
   const itemDiv = document.createElement("div");
   itemDiv.setAttribute("class", "products col-4 col-sm-12 col-xsm-12");
@@ -51,6 +53,8 @@ export function productManagement(product) {
 
       // Save to LocalStorage
       saveLocalItems(product);
+      // Accumulate checkout upon adding new item
+      calculateCheckout();
     }
   }
 }
@@ -66,8 +70,7 @@ function saveLocalItems(product) {
   localStorage.setItem("products", JSON.stringify(products));
 }
 
-// Remove item from Cart
-//Product contains its ID later referred as productId
+//Remove item from Cart
 function removeItemFromCart(e) {
   const targbtn = e.target;
   const product = targbtn.value;
@@ -75,6 +78,7 @@ function removeItemFromCart(e) {
     targbtn.parentElement.style.display = "none";
     // Remove from local storage
     removeLocalItems(product);
+    calculateCheckout();
   }
 }
 
@@ -95,7 +99,7 @@ function removeLocalItems(product) {
 }
 
 // Runs after DOMContentLoaded
-// Display items from mem
+// Display items from memory
 export function getRequestedItems() {
   let products;
   if (localStorage.getItem("products") === null) {
@@ -127,4 +131,35 @@ export function getRequestedItems() {
     newItem.appendChild(itemP);
     itemDiv.appendChild(trashButton);
   });
+}
+
+//Features
+//Event Listeners
+//Functions
+export function calculateCheckout() {
+  // Get Items from localStorage
+  let products;
+
+  if (localStorage.getItem("products") === null) {
+    products = [];
+  } else {
+    products = JSON.parse(localStorage.getItem("products"));
+  }
+
+  // re-structure products array into a new array with objects containing only project.price
+  let prices = products.map((obj) => {
+    let rObj = {};
+    rObj = obj.price;
+    return rObj;
+  });
+
+  let sum = prices.reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0);
+
+  checkoutPrice.innerHTML = sum.toFixed(2);
+}
+
+export function basketToggle() {
+  basketMenu.classList.toggle("basket-active");
 }

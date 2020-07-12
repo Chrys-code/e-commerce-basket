@@ -1,8 +1,12 @@
-import { productManagement, getRequestedItems } from "./elevent.js";
+import {
+  productManagement,
+  getRequestedItems,
+  basketToggle,
+  calculateCheckout,
+} from "./elevent.js";
 
 //Variables
 const basketBtn = document.getElementsByClassName("basket")[0];
-const basketMenu = document.getElementsByClassName("basket-menu")[0];
 
 // EventListeners
 window.addEventListener("DOMContentLoaded", readTextFile);
@@ -44,23 +48,22 @@ readTextFile("./products.json", function (text) {
     const product = new RequestedItem(itemId, itemPrice, itemTitle, itemImage);
 
     // Initial dynamic front store generation
-    // Item events => /add/remove
+    // Item events =>
+    // add - addLocalStorage
+    // remove - removeFromLocalStorage
+    // => calculate checkout price
     productManagement(product);
   }
 });
 
 //Side Functions
 //Basket open/close
-function basketToggle() {
-  basketMenu.classList.toggle("basket-active");
-}
+basketToggle();
+// Calculate checout total price from local storage
+calculateCheckout();
 
 /* 
 Unfortunately could not place the Object Constructor into the global scope as all the data read in from
 a JSON file which behaviour is very similar to API requests in the way I used here.
 I meant to have a DATABASE* with this method
-
-This is the reason why the code is so nested at the addItemsToCart function.
-removeItemFromCart is not so deeply nested as it depends on a global scoped const variable and
-key variables such as product ID are passed via event capturing.
 */

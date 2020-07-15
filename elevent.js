@@ -11,10 +11,14 @@ export function productManagement(product) {
   itemDiv.setAttribute("class", "products col-4 col-sm-12 col-xsm-12");
   const itemImg = document.createElement("img");
   itemImg.setAttribute("style", "height: 200px; width: 200px;");
+  itemImg.setAttribute("class", "pointer");
   itemImg.src = `${product.image}`;
   const itemT = document.createElement("h3");
+  itemT.setAttribute("class", "pointer");
   itemT.innerHTML = product.title;
   const itemP = document.createElement("p");
+  itemP.setAttribute("class", "pointer");
+
   itemP.innerHTML = product.price;
 
   row.appendChild(itemDiv);

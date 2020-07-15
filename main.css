@@ -164,6 +164,10 @@ nav {
   cursor: pointer;
 }
 
+.pointer {
+  pointer-events: none;
+}
+
 /* Product List End*/
 
 /* Responsivitiy */
